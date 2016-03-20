@@ -8,13 +8,13 @@ class Solution():
 			if self.isFile(entries[i]):
 				if self.isImg(entries[i]):
 					if len(stack) == 0:
-						paths.append("/")
+						path = "/"
 					else:
 						path = ""
 						for each in stack:
 							path = path+"/"+each.strip()
-						if path not in paths:
-							paths.append(path)
+					if path not in paths:
+						paths.append(path)
 			else:
 				if len(stack) == 0:
 					stack.append(entries[i]) 
@@ -43,7 +43,7 @@ class Solution():
 
 if __name__ == '__main__':
 	a = Solution()
-	pathSum = a.imgPathSum("img.png\ndir1\n dir11\n dir12\n  picture.jpeg\n  dir121\n  filel.txt\ndir2\n file2.gif")
+	pathSum = a.imgPathSum("img.png\ndir1\n dir11\n dir12\n  picture.jpeg\n  dir121\n  filel.txt\ndir2\n file2.gif\n123.gif")
 	print pathSum
 
 #input format: "dir1\n dir11\n dir12\n  picture.jpeg\n  dir121\n  filel.txt\ndir2\n file2.gif";
